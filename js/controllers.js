@@ -2,8 +2,8 @@
 
 var controllers = angular.module("controllers", []);
 
-controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryService','addressService', 'autoCompletionService',
-	function mainCtrl($scope, $location, $http, countryService, addressService, autoCompletionService) {
+controllers.controller('mainCtrl', ['$scope', '$rootScope','$location', '$http', 'countryService','addressService', 'autoCompletionService',
+	function mainCtrl($scope, $rootScope, $location, $http, countryService, addressService, autoCompletionService) {
 
 	var http = $http;
 	var scope = $scope;
@@ -11,12 +11,15 @@ controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryServ
   var latitude = 0;
   var longitude = 0;
 
+  scope.selectedCountryIndex = -1;
+  scope.selectedAddressIndex = -1;
+
   scope.searchCountry = function() {
 		scope.countryList = autoCompletionService.search(countryService.getCountryList(),scope.countryText);
   }
 
   scope.searchAddress = function() {
-		scope.addressList =  autoCompletionService.search( scope.currentAddresses,scope.addressText);
+		scope.addressList =  autoCompletionService.search(scope.currentAddresses,scope.addressText);
   }
 
   addressService.findMyCoordinates().then(function(response) {
@@ -46,6 +49,28 @@ controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryServ
   scope.selectAddress = function(index) {
 		scope.addressText = scope.addressList[index];
 		scope.addressList = [];
+	}
+
+  scope.controlCountryListWithKey = function(event) {
+     if (event.keyCode === 40) {
+				scope.selectedCountryIndex++;
+		} else if (event.keyCode === 38) {
+				scope.selectedCountryIndex--;
+    } else if(event.keyCode === 13){
+        scope.countryText = scope.countryList[scope.selectedCountryIndex];
+        scope.countryList = [];
+		}
+	}
+
+	scope.controlAddressListWithKey = function(event) {
+     if (event.keyCode === 40) {
+				scope.selectedAddressIndex++;
+		} else if (event.keyCode === 38) {
+				scope.selectedCountryIndex--;
+    } else if(event.keyCode === 13){
+        scope.addressText = scope.addressList[scope.selectedAddressIndex];
+        scope.addressList = [];
+		}
 	}
 
 }]);
