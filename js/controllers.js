@@ -2,8 +2,8 @@
 
 var controllers = angular.module("controllers", []);
 
-controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'addressService',
-	function mainCtrl($scope, $location, $http, addressService) {
+controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryService','addressService',
+	function mainCtrl($scope, $location, $http, countryService, addressService) {
 
 	var http = $http;
 	var scope = $scope;
@@ -11,18 +11,12 @@ controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'addressServ
   var latitude = 0;
   var longitude = 0;
 
-	scope.searchItems = [
-		  "Germany",
-		  "USA"
-	];
-
   scope.searchCountry = function() {
-		scope.countryList = scope.searchItems;
+		scope.countryList = countryService.getCountryList();
   }
 
   scope.searchAddress = function() {
 		scope.addressList =   scope.currentAddresses;
-  
   }
 
   addressService.findMyCoordinates().then(function(response) {
@@ -43,5 +37,15 @@ controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'addressServ
 			}
   		});
 	});
+
+  scope.selectCountry = function(index) {
+		scope.countryText = scope.countryList[index];
+    scope.countryList = [];
+	}
+
+  scope.selectAddress = function(index) {
+		scope.addressText = scope.addressList[index];
+		scope.addressList = [];
+	}
 
 }]);

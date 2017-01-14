@@ -23,7 +23,7 @@
         <div class="label">Search Countries</div>
         <div><input type="text" placeholder="Search for items" class="input" ng-model="countryText" ng-change="searchCountry()"/></div>
         <ul class="autocomplete-list">
-          <li ng-repeat="address in countryList track by $index" ng-class="{active : selectedIndex === $index}">{{address}}</li>
+          <li ng-repeat="address in countryList | limitTo:6 track by $index" ng-class="{active : selectedIndex === $index}" ng-click="selectCountry($index)">{{address}}</li>
         </ul>
       </div>
 
@@ -31,10 +31,9 @@
         <div class="label">Search Addresses at your location</div>
         <div><input type="text" placeholder="Search for items" class="input" ng-model="addressText" ng-change="searchAddress()"/></div>
           <ul class="autocomplete-list">
-          <li ng-repeat="address in addressList track by $index" ng-class="{active : selectedIndex === $index}">{{address}}</li>
+          <li ng-repeat="address in addressList | limitTo:6 track by $index | limitTo: 6" ng-class="{active : selectedIndex === $index}" ng-click="selectAddress($index)">{{address}}</li>
           </ul>
         </div>
       </div>
-
   </body>
 </html>

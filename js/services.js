@@ -2,6 +2,18 @@
 
 var services = angular.module('services', []);
 
+services.service('countryService', function() {
+
+  this.getCountryList = function() {
+    var countryItems = [
+  		  "Germany","USA","Argentina","Belgium","Australia", "Hong Kong", "Estonia", "Finland", "France", "Iceland", "Greece",
+        "Japan", "Latvia", "Korea, South", "Macedonia", "Morocco", "Norway", "Portugal", "Qatar", "Romania", "Spain", "Turkey",
+        "United Kingdom", "Vietnam"
+  	];
+    return countryItems;
+  }
+});
+
 services.service('addressService', function($http, $q, $window){
 
   this.findMyCoordinates = function() {
