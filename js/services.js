@@ -26,7 +26,7 @@ services.service('addressService', function($http, $q, $window){
 	this.findAddressesWithCoordinates = function(latitude, longitude) {
 
 		var defer = $q.defer();
-		$http.get("http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude + ","+ longitude +"&sensor=false").then(function(response) {
+		$http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude + ","+ longitude +"&sensor=false").then(function(response) {
 	    	defer.resolve(response.data);
 		});
 	  return defer.promise;
