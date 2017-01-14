@@ -1,0 +1,24 @@
+{
+  "name": "autocorrelation",
+  "description": "",
+  "main": "",
+  "authors": [
+    "ozduman <halukozduman@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "",
+    "angular-mocks": "",
+	  "angular-cookies": "",
+	  "angular-resource": "",
+	  "ang1ular-route": ""
+  }
+}

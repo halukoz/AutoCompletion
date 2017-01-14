@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="autocompleteApp">
+  <head>
+    <title>Autocomplete Application</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+  <body>
+  		<header>
+  			<h1>
+  				<span id="header">Autocomplete Application</span>
+  			</h1>
+  		</header>
+  			<div ng-controller="addressCtrl">
+            {{test}}
+           {{addressList}}
+        </div>
+  </body>
+</html>
