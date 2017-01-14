@@ -6,11 +6,11 @@ describe('Testing Autocompletion Controllers', function() {
   beforeEach(module('autocompleteApp'));
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    addressController = $controller('addressCtrl', {$scope:scope}, {addressService:addressService});
+    addressController = $controller('mainCtrl', {$scope:scope}, {addressService:addressService});
   }));
 
   it('Initilize values in Address Controller', function() {
-    expect(scope.test).toBeDefined();
-    expect(scope.test).toBe("haluk");
+    expect(scope.searchItems).toBeDefined();
+    expect(scope.searchItems.length).toBe(2);
   });
 });

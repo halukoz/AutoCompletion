@@ -2,8 +2,8 @@
 
 var controllers = angular.module("controllers", []);
 
-controllers.controller('addressCtrl', ['$scope', '$location', '$http', 'addressService',
-	function addressCtrl($scope, $location, $http, addressService) {
+controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'addressService',
+	function mainCtrl($scope, $location, $http, addressService) {
 
 	var http = $http;
 	var scope = $scope;
@@ -11,20 +11,33 @@ controllers.controller('addressCtrl', ['$scope', '$location', '$http', 'addressS
   var latitude = 0;
   var longitude = 0;
 
-  scope.test = "haluk";
+	scope.searchItems = [
+		  "Germany",
+		  "USA"
+	];
+
+  scope.searchCountry = function() {
+		scope.countryList = scope.searchItems;
+  }
+
+  scope.searchAddress = function() {
+		scope.addressList =   scope.currentAddresses;
+  
+  }
+
   addressService.findMyCoordinates().then(function(response) {
 		latitude = response.coords.latitude;
 		longitude = response.coords.longitude;
 
 		addressService.findAddressesWithCoordinates(latitude, longitude).then(function(response) {
-      scope.addressList = [];
+      scope.currentAddresses = [];
       for (var i=0; i < response.results.length; i++) {
-          if (scope.addressList.indexOf(response.results[i].formatted_address) < 0) {
-							scope.addressList.push(response.results[i].formatted_address);
+          if (scope.currentAddresses.indexOf(response.results[i].formatted_address) < 0) {
+							scope.currentAddresses.push(response.results[i].formatted_address);
 					}
           for (var j=0; j < response.results[i].address_components.length; j++) {
-          if (scope.addressList.indexOf(response.results[i].address_components[j].long_name) < 0) {
-						scope.addressList.push(response.results[i].address_components[j].long_name);
+          if (scope.currentAddresses.indexOf(response.results[i].address_components[j].long_name) < 0) {
+						scope.currentAddresses.push(response.results[i].address_components[j].long_name);
 					}
 				}
 			}

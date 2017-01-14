@@ -18,15 +18,23 @@
       </h1>
   	</header>
 
-    <div class="label">Search</div>
-      <div><input type="text" placeholder="Search for items" class="input" /></div>
-    <ul class="autocomplete-list">
+   <div ng-controller="mainCtrl">
+      <div class="country-wrapper">
+        <div class="label">Search Countries</div>
+        <div><input type="text" placeholder="Search for items" class="input" ng-model="countryText" ng-change="searchCountry()"/></div>
+        <ul class="autocomplete-list">
+          <li ng-repeat="address in countryList track by $index" ng-class="{active : selectedIndex === $index}">{{address}}</li>
+        </ul>
+      </div>
 
-    </ul>
+      <div class="address-wrapper">
+        <div class="label">Search Addresses at your location</div>
+        <div><input type="text" placeholder="Search for items" class="input" ng-model="addressText" ng-change="searchAddress()"/></div>
+          <ul class="autocomplete-list">
+          <li ng-repeat="address in addressList track by $index" ng-class="{active : selectedIndex === $index}">{{address}}</li>
+          </ul>
+        </div>
+      </div>
 
-    <div ng-controller="addressCtrl">
-        {{test}}
-    <div ng-repeat="address in addressList track by $index">{{address}}</div><br>
-  	</div>
   </body>
 </html>
