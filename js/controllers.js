@@ -2,8 +2,8 @@
 
 var controllers = angular.module("controllers", []);
 
-controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryService','addressService',
-	function mainCtrl($scope, $location, $http, countryService, addressService) {
+controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryService','addressService', 'autoCompletionService',
+	function mainCtrl($scope, $location, $http, countryService, addressService, autoCompletionService) {
 
 	var http = $http;
 	var scope = $scope;
@@ -12,11 +12,11 @@ controllers.controller('mainCtrl', ['$scope', '$location', '$http', 'countryServ
   var longitude = 0;
 
   scope.searchCountry = function() {
-		scope.countryList = countryService.getCountryList();
+		scope.countryList = autoCompletionService.search(countryService.getCountryList(),scope.countryText);
   }
 
   scope.searchAddress = function() {
-		scope.addressList =   scope.currentAddresses;
+		scope.addressList =  autoCompletionService.search( scope.currentAddresses,scope.addressText);
   }
 
   addressService.findMyCoordinates().then(function(response) {

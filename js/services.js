@@ -2,6 +2,23 @@
 
 var services = angular.module('services', []);
 
+services.service('autoCompletionService', function() {
+
+  this.search = function(countryList, countryText) {
+
+  var results = [];
+    for (var i=0; i < countryList.length; i++) {
+       var countryItem = angular.lowercase(countryList[i]);
+       var countryLowerText = angular.lowercase(countryText);
+       if (countryItem.indexOf(countryLowerText) !== -1) {
+          results.push(countryList[i]);
+       }
+    }
+   return results;
+  }
+
+});
+
 services.service('countryService', function() {
 
   this.getCountryList = function() {
