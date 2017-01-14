@@ -11,14 +11,16 @@
     <script src="js/services.js"></script>
   </head>
   <body>
-  		<header>
-  			<h1>
-  				<span id="header">Autocomplete Application</span>
-  			</h1>
-  		</header>
-  			<div ng-controller="addressCtrl">
-            {{test}}
-           {{addressList}}
-        </div>
+    <header>
+      <h1>
+        <span id="header">Autocomplete Application</span>
+      </h1>
+  	</header>
+
+    <div ng-controller="addressCtrl">
+          {{test}}
+      <div ng-repeat="address in addressList track by $index">{{address}}</div><br>
+  	</div>
+    </div>
   </body>
 </html>
