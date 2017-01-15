@@ -73,6 +73,10 @@ function mainCtrl($scope, $rootScope, $location, $http, countryService, addressS
 			if(scope.selectedCountryIndex-1 >= 0) {
 				scope.selectedCountryIndex--;  // decrease the selected country index.
 			}
+		} else if(event.keyCode === 8){ //backspace
+			if($scope.countryText.length === 1){ // if text lenght is 1, after backspace, text input field will be empty, selectedCountryIndex should be -1,
+				scope.selectedCountryIndex = -1;
+			}
 		}
 	}
 
@@ -89,6 +93,10 @@ function mainCtrl($scope, $rootScope, $location, $http, countryService, addressS
 		} else if (event.keyCode === 38) { // if users click up button
 			if(scope.selectedAddressIndex-1 >= 0) {
 				scope.selectedAddressIndex--; // decrease the selected address index.
+			}
+		} else if(event.keyCode === 8){ //backspace
+			if($scope.addressText.length === 1){ // if text lenght is 1, after backspace, text input field will be empty, selectedAddressIndex should be -1,
+				scope.selectedAddressIndex = -1;
 			}
 		}
 	}
