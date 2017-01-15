@@ -22,16 +22,16 @@
 
     <div ng-controller="mainCtrl">
       <div class="country-wrapper">
-        <div class="label">Search Countries</div>
-        <div><input type="text" placeholder="Search for items" class="input" ng-model="countryText" ng-keydown="controlCountryListWithKey($event)" ng-change="searchCountry()"/></div>
+        <div class="label"><b>Search Countries</b></div>
+        <div><input type="text" placeholder="Search for countries" class="input" ng-model="countryText" ng-keydown="controlCountryListWithKey($event)" ng-change="searchCountry()"/></div>
         <ul class="autocomplete-list">
           <li ng-repeat="address in countryList | limitTo:6 track by $index" ng-class="{active : selectedCountryIndex === $index}" ng-click="selectCountry($index)">{{address}}</li>
         </ul>
       </div>
 
       <div class="address-wrapper">
-        <div class="label">Search Addresses at your location</div>
-        <div><input type="text" placeholder="Search for items" class="input" ng-model="addressText" ng-keydown="controlAddressListWithKey($event)" ng-change="searchAddress()"/></div>
+        <div class="label"><b>Search Addresses at your location</b></div>
+        <div><input type="text" placeholder="Search for addresses" class="input" ng-model="addressText" ng-keydown="controlAddressListWithKey($event)" ng-change="searchAddress()"/></div>
         <ul class="autocomplete-list">
           <li ng-repeat="address in addressList | limitTo:6 track by $index | limitTo: 6" ng-class="{active : selectedAddressIndex === $index}" ng-click="selectAddress($index)">{{address}}</li>
         </ul>

@@ -8,19 +8,15 @@ body{
 	position:absolute;
 	width:450px;
 	height:150px;
-	top:40%;
-	margin-top:-75px;
-	left:40%;
-	margin-left:-150px;
+	top:15%;
+	left:33%;
 }
 .address-wrapper {
 	position:absolute;
 	width:450px;
 	height:150px;
-	top:60%;
-	margin-top:-75px;
-	left:40%;
-	margin-left:-150px;
+	top:55%;
+	left:33%;
 }
 h1{
 	text-align:center;
@@ -57,11 +53,12 @@ h1{
 .autocomplete-list li:active,
 .autocomplete-list li.active {
 	color: #FFFFFF;
-	background: #0099FF;
+	background: #ff5900;
 	width:400px;
 }
 .autocomplete-list li:hover {
-	background: #c3c3c3;
+	color: #FFFFFF;
+	background: #ff5900;
 }
 .autocomplete-list:focus{
 	outline:none;

@@ -6,6 +6,7 @@ var services = angular.module('services', []);
 // autoCompletionService provides suggestions for users while they are typing.
 services.service('autoCompletionService', function() {
   this.search = function(list, searchCriteria) { // get lists such as address list or county list and searchCriteria which is typed by the user and search the searchCriteria in the list.
+  list.sort(); // sort the list items alphabetically.
   var results = []; // results list is initially empty.
   for (var i=0; i < list.length; i++) {
     var listItem = angular.lowercase(list[i]); // get item from item list one by one and convert them to lowercase
