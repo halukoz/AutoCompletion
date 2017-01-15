@@ -31,9 +31,9 @@ describe('Testing Autocompletion Services', function() {
   });
 
   it('Google API address test', function () {
-         $httpBackend.expectGET('https://maps.googleapis.com/maps/api/geocode/json?latlng=52.517082599999995,13.323661099999981&sensor=false').respond('Hi!');
-         var list = addressService.findAddressesWithCoordinates("52.517082599999995","13.323661099999981");
-         $httpBackend.flush();
+	$httpBackend.expectGET('https://maps.googleapis.com/maps/api/geocode/json?latlng=52.517082599999995,13.323661099999981&sensor=false').respond('Hi!');
+	var list = addressService.findAddressesWithCoordinates("52.517082599999995","13.323661099999981");
+	$httpBackend.flush();
   });
 
 });

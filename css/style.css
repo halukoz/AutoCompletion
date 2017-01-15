@@ -39,7 +39,7 @@ h1{
 }
 .autocomplete-list {
 	position: absolute;
-  z-index: 2;
+	z-index: 2;
 	list-style-type: none;
 	margin: 0 0 0 13px;
 	padding: 0;

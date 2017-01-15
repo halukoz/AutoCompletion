@@ -19,7 +19,7 @@ describe('Testing Autocompletion Controllers', function() {
     expect(country_Service.getCountryList).not.toHaveBeenCalled();
   })
 
-  it("Should be address list size = 0, if countryText", function() {
+  it("inital condition, get country list is not called", function() {
     scope.countryText = "";
     scope.searchCountry();
     expect(country_Service.getCountryList).not.toHaveBeenCalled();

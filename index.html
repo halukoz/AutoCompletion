@@ -1,7 +1,9 @@
+<!-- Developed by Haluk Ozduman, 2017-->
+
 <!doctype html>
 <html ng-app="autocompleteApp">
   <head>
-    <title>Autocomplete Application</title>
+    <title>Autocompletion Application</title>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
@@ -14,11 +16,11 @@
   <body>
     <header>
       <h1>
-        <span id="header">Autocomplete Application</span>
+        <span id="header">Autocompletion Application</span>
       </h1>
   	</header>
 
-   <div ng-controller="mainCtrl">
+    <div ng-controller="mainCtrl">
       <div class="country-wrapper">
         <div class="label">Search Countries</div>
         <div><input type="text" placeholder="Search for items" class="input" ng-model="countryText" ng-keydown="controlCountryListWithKey($event)" ng-change="searchCountry()"/></div>
@@ -30,10 +32,10 @@
       <div class="address-wrapper">
         <div class="label">Search Addresses at your location</div>
         <div><input type="text" placeholder="Search for items" class="input" ng-model="addressText" ng-keydown="controlAddressListWithKey($event)" ng-change="searchAddress()"/></div>
-          <ul class="autocomplete-list">
+        <ul class="autocomplete-list">
           <li ng-repeat="address in addressList | limitTo:6 track by $index | limitTo: 6" ng-class="{active : selectedAddressIndex === $index}" ng-click="selectAddress($index)">{{address}}</li>
-          </ul>
-        </div>
+        </ul>
       </div>
+    </div>
   </body>
 </html>
