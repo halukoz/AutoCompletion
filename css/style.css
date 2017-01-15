@@ -6,17 +6,21 @@ body{
 }
 .country-wrapper {
 	position:absolute;
-	width:33%;
+	width:450px;
 	height:150px;
-	top:15%;
-	left:33%;
+	top:40%;
+	margin-top:-75px;
+	left:40%;
+	margin-left:-150px;
 }
 .address-wrapper {
 	position:absolute;
-	width:33%;
+	width:450px;
 	height:150px;
-	top:55%;
-	left:33%;
+	top:60%;
+	margin-top:-75px;
+	left:40%;
+	margin-left:-150px;
 }
 h1{
 	text-align:center;
