@@ -10,6 +10,7 @@ For this implementation, I used two different type of data
 ## Technologies
 * Frontend: HTML-5, CSS-3, AngularJS, Javascript
 * Unit Test: Karma, Jasmine. (tests with Crome and Mozilla)
+* Package Management: Bower, NPM
 
 ## How to install
 * Clone the project from this github page
@@ -25,3 +26,5 @@ For this implementation, I used two different type of data
 * Then, you should install jasmine, you can install with the command: npm install karma jasmine --save-dev
 * Then, you can go to tests folder and run the command: karma start
 * Finally, You will see the result of the tests. (Note: chrome and firefox browsers will be opened automatically)
+
+![The Design](/image.png)

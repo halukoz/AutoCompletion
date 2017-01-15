@@ -1,3 +1,5 @@
+// developed by Haluk Ozduman 2017
+// tests for controller
 describe('Testing Autocompletion Controllers', function() {
 
   var scope, mainCtrl;
@@ -5,14 +7,14 @@ describe('Testing Autocompletion Controllers', function() {
   var autoCompletion_Service;
 
   beforeEach(module('autocompleteApp'));
-
+  // inject controller rootscope, country service and autoCompletionService before tests
   beforeEach(inject(function($controller, $rootScope, _countryService_, _autoCompletionService_) {
 
     country_Service = _countryService_;
     autoCompletion_Service = _autoCompletionService_;
     scope = $rootScope.$new();
     mainCtrl = $controller('mainCtrl', {$scope:scope}, {countryService:country_Service}, {autoCompletionService:autoCompletion_Service});
-    spyOn(country_Service, 'getCountryList');
+    spyOn(country_Service, 'getCountryList');  // access getCountryList of country service
   }));
 
   it("inital condition, get country list is not called", function() {

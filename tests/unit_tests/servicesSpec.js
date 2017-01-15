@@ -1,3 +1,5 @@
+// developed by Haluk Ozduman
+// tests for services
 describe('Testing Autocompletion Services', function() {
 
   var scope, mainCtrl;
@@ -7,7 +9,7 @@ describe('Testing Autocompletion Services', function() {
   var $httpBackend;
 
   beforeEach(module('autocompleteApp'));
-
+  // inject controller, rootscope and http connection before tests, httpBackend is important for api tests.
   beforeEach(inject(function($controller, $rootScope, _$httpBackend_) {
     scope = $rootScope.$new();
     mainCtrl = $controller('mainCtrl', {$scope:scope});

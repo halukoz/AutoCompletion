@@ -5,18 +5,18 @@
 var services = angular.module('services', []);
 // autoCompletionService provides suggestions for users while they are typing.
 services.service('autoCompletionService', function() {
-  this.search = function(list, searchCriteria) { // get lists such as address list or county list and searchCriteria which is typed by the user and search the searchCriteria in the list.
-  list.sort(); // sort the list items alphabetically.
-  var results = []; // results list is initially empty.
-  for (var i=0; i < list.length; i++) {
-    var listItem = angular.lowercase(list[i]); // get item from item list one by one and convert them to lowercase
-    var searchCriteriaLowerCase = angular.lowercase(searchCriteria); // convert the searchCriteria to lowercase
-    if (listItem.indexOf(searchCriteriaLowerCase) !== -1) { // if the list item contains the searchCriteria, this means, this can be a suggestion for the user.
-      results.push(list[i]);
+  this.search = function(list, searchCriteria) { // get lists such as address list or country list and searchCriteria which is typed by the user and search the searchCriteria in the list.
+    list.sort(); // sort the list items alphabetically.
+    var results = []; // results list is initially empty.
+    for (var i=0; i < list.length; i++) {
+      var listItem = angular.lowercase(list[i]); // get item from item list one by one and convert them to lowercase
+      var searchCriteriaLowerCase = angular.lowercase(searchCriteria); // convert the searchCriteria to lowercase
+      if (listItem.indexOf(searchCriteriaLowerCase) !== -1) { // if the list item contains the searchCriteria, this means, this can be a suggestion for the user.
+        results.push(list[i]);
+      }
     }
+    return results;
   }
-  return results;
-}
 });
 
 // country service provides dummy data for this application (Dummy data: country names)
@@ -41,14 +41,14 @@ this.findUserCoordinates = function() {  // this function finds users' coordinat
     deferred.reject('location could not find.');  // if the location could not be found.
   } else {
     $window.navigator.geolocation.getCurrentPosition(
-    function (position) {
+    function (position) {  // if position is found, send the information to the controller.
       deferred.resolve(position);
     },
-    function (err) {
+    function (err) {  // if some error are happened, do not send the data to the controller.
       deferred.reject(err);
     });
   }
-  return deferred.promise;
+  return deferred.promise; // after loading, send the information to controller
 }
 
 // this function return addresses according to given latitude and longitude values. Get data from googleapis. (this API is free, we do not need to add any key)
