@@ -6,20 +6,20 @@ body{
 }
 .country-wrapper {
 	position:absolute;
-	width:300px;
+	width:450px;
 	height:150px;
 	top:40%;
 	margin-top:-75px;
-	left:50%;
+	left:40%;
 	margin-left:-150px;
 }
 .address-wrapper {
 	position:absolute;
-	width:300px;
+	width:450px;
 	height:150px;
 	top:60%;
 	margin-top:-75px;
-	left:50%;
+	left:40%;
 	margin-left:-150px;
 }
 h1{
@@ -30,7 +30,7 @@ h1{
 	text-align:center;
 }
 .input{
-	width:230px;
+	width:400px;
 	height:30px;
 	outline:none;
 	padding:0px 10px;
@@ -41,7 +41,7 @@ h1{
 	position: absolute;
   z-index: 2;
 	list-style-type: none;
-	margin: 0 0 0 23px;
+	margin: 0 0 0 13px;
 	padding: 0;
 	overflow: auto;
 }
@@ -52,13 +52,13 @@ h1{
 	cursor: pointer;
 	background: #f9f9f9;
 	border-bottom: 1px solid #eeeeee;
-	width:230px;
+	width:400px;
 }
 .autocomplete-list li:active,
 .autocomplete-list li.active {
 	color: #FFFFFF;
 	background: #0099FF;
-	width:230px;
+	width:400px;
 }
 .autocomplete-list li:hover {
 	background: #c3c3c3;
