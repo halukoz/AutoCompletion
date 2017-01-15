@@ -1,7 +1,7 @@
 # AutoCompletion Project
 
 This project provides search boxes with autoCompletion property. For example, If you start typing as "ge", this search box show suggestions such as Germany, Argentina because names of the countries contain "ge".
-To see the web site https://halukoz.github.io/autoCompletion/
+* To see the web site https://halukoz.github.io/autoCompletion/
 
 For this implementation, I used two different type of data
 * Dummy data: I added names of some countries (not all countries) as dummy data.
